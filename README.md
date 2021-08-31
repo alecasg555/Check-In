@@ -3,6 +3,8 @@ This is a check in project where you can:
 search by dni
 edit checkIn
 complete checkIn
+![image](https://user-images.githubusercontent.com/81333589/131435865-4bbcfc96-111b-42c9-bfa1-4fae511e7d6b.png)
+
 
 # Getting Started with Create React App
 

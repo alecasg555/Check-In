@@ -41,13 +41,13 @@ const EditCheckIn = (props) => {
   const users = useSelector((state) => state.checkIn.users);
   const [user, setUser] = useState(null);
   const [isFinished, setIsFinished] = useState(false);
-  const [isCheck, setIsCheck] = useState(false);
+  const [isCheck] = useState(false);
   useEffect(() => {
     const isUser = users.find((u) => u.user.dni.toString() == dni);
     if (isUser) return setUser(isUser);
   }, [dni]);
   const handleSubmitFormik = async (values) => {
-    values.check = isCheck;
+    values.check = true;
     dispatch(editCheckIn(dni, values));
     setIsFinished(true);
   };
@@ -209,7 +209,7 @@ const EditCheckIn = (props) => {
                             error={Boolean(touched.check && errors.check)}
                             helperText={touched.check && errors.check}
                             onBlur={handleBlur}
-                            onChange={(e) => setIsCheck(e.target.checked)}
+                            disabled
                             color="primary"
                           />
                         </Grid>
@@ -230,7 +230,7 @@ const EditCheckIn = (props) => {
                           color="primary"
                           className={classes.buttonSave}
                         >
-                          Editar
+                          Guardar
                         </Button>
                       </Grid>
                     </Form>
